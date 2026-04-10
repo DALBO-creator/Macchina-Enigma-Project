@@ -19,28 +19,21 @@ public class Rotore {
         return posizione;
     }
 
-    /**
-     * Cifra una lettera passando da sinistra verso destra (avanti).
-     * Tiene conto della posizione attuale del rotore.
-     */
-    public char cifraAvanti(char c) {
+
+    public char cifraAvanti(char c) { //pos. attuale, va verso dx
         int indice = (c - 'A' + posizione) % 26;
         char cifrata = mappatura[indice];
         return (char) ((cifrata - 'A' - posizione + 26) % 26 + 'A');
     }
 
-    /**
-     * Cifra una lettera passando da destra verso sinistra (indietro).
-     * È l'operazione inversa di cifraAvanti.
-     */
-    public char cifraIndietro(char c) {
+
+    public char cifraIndietro(char c) { //dopo il riflettore va verso sx
         int indice = (c - 'A' + posizione) % 26;
-        // Cerca la posizione nella mappatura
         for (int i = 0; i < 26; i++) {
             if (mappatura[i] == (char) (indice + 'A')) {
                 return (char) ((i - posizione + 26) % 26 + 'A');
             }
         }
-        return c; // non dovrebbe mai arrivare qui
+        return c; // non dovrebbe arrivare qui
     }
 }
