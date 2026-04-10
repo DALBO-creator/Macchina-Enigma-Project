@@ -46,4 +46,5 @@ public class Rotore {
         }
         return c; // non dovrebbe arrivare qui
     }
+
 }
