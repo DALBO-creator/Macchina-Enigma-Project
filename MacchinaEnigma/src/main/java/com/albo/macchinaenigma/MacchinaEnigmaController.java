@@ -3,6 +3,7 @@ package com.albo.macchinaenigma;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 
@@ -29,6 +30,14 @@ public class MacchinaEnigmaController {
     @FXML private HBox keyRow2;
     @FXML private HBox keyRow3;
 
+    // Righe del pannello prese
+    @FXML private HBox plugRow1;
+    @FXML private HBox plugRow2;
+    @FXML private HBox plugRow3;
+
+    // Campo di testo per le coppie del pannello prese
+    @FXML private TextField fieldPannelloPrese;
+
     // Layout tastiera tedesca (come nell'immagine)
     private static final String[] RIGA1 = {"Q","W","E","R","T","Z","U","I","O"};
     private static final String[] RIGA2 = {"A","S","D","F","G","H","J","K"};
@@ -54,6 +63,11 @@ public class MacchinaEnigmaController {
         creaTasti(RIGA2, keyRow2);
         creaTasti(RIGA3, keyRow3);
 
+        // Crea i cerchietti del pannello prese
+        creaPlug(RIGA1, plugRow1);
+        creaPlug(RIGA2, plugRow2);
+        creaPlug(RIGA3, plugRow3);
+
         // Mostra la posizione iniziale dei rotori
         aggiornaRotori();
     }
@@ -69,6 +83,7 @@ public class MacchinaEnigmaController {
             riga.getChildren().add(lamp);
         }
     }
+
     // Crea i bottoni per una riga e li aggiunge all'HBox
     private void creaTasti(String[] lettere, HBox riga) {
         for (String s : lettere) {
@@ -82,6 +97,16 @@ public class MacchinaEnigmaController {
             // Salva il bottone nel vettore usando l'indice della lettera
             buttons[finalLettera - 'A'] = btn;
             riga.getChildren().add(btn);
+        }
+    }
+
+    // Crea i cerchietti del pannello prese (solo visivi, nessun evento)
+    private void creaPlug(String[] lettere, HBox riga) {
+        for (String s : lettere) {
+            Label plug = new Label(s);
+            plug.setPrefSize(40, 40);
+            plug.setStyle(stilePlug());
+            riga.getChildren().add(plug);
         }
     }
 
@@ -127,10 +152,26 @@ public class MacchinaEnigmaController {
         }
     }
 
+    // Applica la configurazione del pannello prese leggendo il TextField
+    @FXML
+    public void applicaConfigurazione() {
+        macchina.configuraPannello(fieldPannelloPrese.getText());
+    }
+
+    // Resetta tutta la macchina alla posizione iniziale
+    @FXML
+    public void resetConfigurazione() {
+        macchina.reset();
+        fieldPannelloPrese.clear();
+        spegniTutteLeLampade();
+        aggiornaRotori();
+    }
+
     /**
      * Metodo chiamato quando si preme un tasto sulla tastiera fisica.
      * Calcola l'indice del bottone corrispondente e simula la sua pressione.
      */
+    @FXML
     public void onKeyPressed(KeyEvent keyEvent) {
         // Controlla se il tasto premuto è una lettera
         if (keyEvent.getCode().isLetterKey()) {
@@ -179,5 +220,16 @@ public class MacchinaEnigmaController {
                 "-fx-border-width: 2;" +
                 "-fx-alignment: center;" +
                 "-fx-effect: dropshadow(gaussian, #ffff00, 10, 0.8, 0, 0);";
+    }
+
+    private String stilePlug() {
+        return "-fx-background-color: #1a1a1a;" +
+                "-fx-text-fill: #555555;" +
+                "-fx-font-family: 'Courier New';" +
+                "-fx-background-radius: 20;" +
+                "-fx-border-radius: 20;" +
+                "-fx-border-color: #444;" +
+                "-fx-border-width: 1;" +
+                "-fx-alignment: center;";
     }
 }
