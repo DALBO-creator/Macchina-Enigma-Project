@@ -2,68 +2,71 @@ package com.albo.macchinaenigma;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 
 public class MacchinaEnigmaController {
-    @FXML
-    private GridPane gridButton;
 
-    private Button[] buttons;
+    // Display dei 3 rotori (lettera corrente + sopra + sotto)
+    @FXML private Label labelRotoreSinistro;
+    @FXML private Label labelRotoreSinistroSu;
+    @FXML private Label labelRotoreSinistroGiu;
+    @FXML private Label labelRotoreMedio;
+    @FXML private Label labelRotoreMedioSu;
+    @FXML private Label labelRotoreMedioGiu;
+    @FXML private Label labelRotoreDestro;
+    @FXML private Label labelRotoreDestroSu;
+    @FXML private Label labelRotoreDestroGiu;
+
+    // Righe del pannello lampade
+    @FXML private HBox lampRow1;
+    @FXML private HBox lampRow2;
+    @FXML private HBox lampRow3;
+
+    // Righe della tastiera
+    @FXML private HBox keyRow1;
+    @FXML private HBox keyRow2;
+    @FXML private HBox keyRow3;
+
+    // Layout tastiera tedesca (come nell'immagine)
+    private static final String[] RIGA1 = {"Q","W","E","R","T","Z","U","I","O"};
+    private static final String[] RIGA2 = {"A","S","D","F","G","H","J","K"};
+    private static final String[] RIGA3 = {"P","Y","X","C","V","B","N","M","L"};
+
+    // Vettore bottoni tastiera, indice = lettera - 'A'
+    private Button[] buttons = new Button[26];
+
+    // Vettore lampade, stesso indice
+    private Label[] lampade = new Label[26];
+
+    // Logica Enigma
+    private MacchinaEnigma macchina = new MacchinaEnigma();
+
     @FXML
     void initialize() {
-        //Crea il vettore di bottoni
-        buttons = new Button[26];
-        //Inizializza alla prima lettera, cioè la A
-        char lettera = 'A';
-        //Imposta le dimensioni dei separatori della griglia
-        gridButton.setHgap(10);
-        gridButton.setVgap(10);
-        //Scorre ogni riga della tastiera
-        for (int i = 0; i < 3; i++) {
-            //Per ogni riga aggiunge 9 bottoni, fino ad arrivare alla Z
-            for (int j = 0; j < 9; j++) {
-                //Crea il nuovo bottone con la lettera corrispondente
-                buttons[i * 9 + j] = new Button("" + lettera);
-                //Stabilisce la dimensione del bottone in modo che occupi 1/10 dello spazio disponibile
-                buttons[i * 9 + j].setPrefWidth(800.0 / 10);
-                //Variabile finale per poter essere usata all'interno della lambda
-                final char finalLettera = lettera;
-                //Aggiunge un evento al bottone che stampa la lettera corrispondente quando viene premuto
-                //Il bottone viene identificato tramite l'evento e la lettera viene stampata tramite la variabile finale
-                //Nella versione definitiva, invece di stampare la lettera, verrà chiamato il metodo per criptare la lettera e visualizzare il risultato
-                buttons[i * 9 + j].setOnAction(e -> {
-                    System.out.println(e.getSource());
-                    System.out.println(finalLettera);
-                });
-                //Aggiunge il bottone alla griglia nella posizione corrispondente
-                gridButton.add(buttons[i * 9 + j], j, i, 1, 1);
-                //Incrementa la lettera per passare alla successiva
-                lettera++;
-                //Se la lettera è arrivata alla Z, esce dal ciclo
-                //Ovviamente si potrebbe anche aggiungere ad esempio il carattere per lo spazio
-                //ma, per quanto detto, non verrebbe usato
-                if (lettera == '[') return;
-            }
-        }
+        // Crea le lampade e i tasti per ogni riga
+        creaLampade(RIGA1, lampRow1);
+        creaLampade(RIGA2, lampRow2);
+        creaLampade(RIGA3, lampRow3);
+
+        creaTasti(RIGA1, keyRow1);
+        creaTasti(RIGA2, keyRow2);
+        creaTasti(RIGA3, keyRow3);
+
+        // Mostra la posizione iniziale dei rotori
+        aggiornaRotori();
     }
 
-    /**
-     * Metodo che viene chiamato quando viene premuto un tasto sulla tastiera
-     * Se il tasto è una lettera, viene identificato il bottone corrispondente e viene simulata la sua pressione
-     * Inoltre, il bottone viene messo a fuoco per evidenziare la lettera corrispondente
-     */
-    public void onKeyPressed(KeyEvent keyEvent) {
-        //Controlla se il tasto premuto è una lettera
-        if (keyEvent.getCode().isLetterKey()) {
-            //Calcola l'indice nel vettore del bottone corrispondente alla lettera premuta
-            int pos = (keyEvent.getCode().getChar().charAt(0) - 'A');
-            //Simula la pressione del bottone corrispondente alla lettera premuta
-            buttons[pos].fire();
-            //Mette a fuoco il bottone corrispondente alla lettera premuta per evidenziarlo
-            buttons[pos].requestFocus();
-            //Stampa la posizione del bottone premuto (opzionale, per debug)
-            System.out.println("" + pos);
+    // Crea le lampade (cerchi spenti) per una riga e le aggiunge all'HBox
+    private void creaLampade(String[] lettere, HBox riga) {
+        for (String s : lettere) {
+            Label lamp = new Label(s);
+            lamp.setPrefSize(40, 40);
+            lamp.setStyle(stileLampadaSpenta());
+            // Salva la lampada nel vettore usando l'indice della lettera
+            lampade[s.charAt(0) - 'A'] = lamp;
+            riga.getChildren().add(lamp);
         }
     }
-}
+    
