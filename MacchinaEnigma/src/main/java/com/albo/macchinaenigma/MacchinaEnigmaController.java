@@ -167,10 +167,8 @@ public class MacchinaEnigmaController {
         aggiornaRotori();
     }
 
-    /**
-     * Metodo chiamato quando si preme un tasto sulla tastiera fisica.
-     * Calcola l'indice del bottone corrispondente e simula la sua pressione.
-     */
+    // Metodo chiamato quando si preme un tasto sulla tastiera fisica. Calcola l'indice del bottone corrispondente e simula la sua pressione.
+
     @FXML
     public void onKeyPressed(KeyEvent keyEvent) {
         // Controlla se il tasto premuto è una lettera
@@ -183,52 +181,51 @@ public class MacchinaEnigmaController {
         }
     }
 
-    // --- STILI ---
+    // STILI
 
     private String stileTasto() {
-        return "-fx-background-color: #2a2a2a;" +
-                "-fx-text-fill: white;" +
-                "-fx-font-family: 'Courier New';" +
-                "-fx-font-weight: bold;" +
-                "-fx-background-radius: 20;" +
-                "-fx-border-radius: 20;" +
-                "-fx-border-color: #555;" +
-                "-fx-border-width: 1;" +
-                "-fx-cursor: hand;";
-    }
-
-    private String stileLampadaSpenta() {
-        return "-fx-background-color: #1a1a1a;" +
-                "-fx-text-fill: #444444;" +
-                "-fx-font-family: 'Courier New';" +
-                "-fx-font-weight: bold;" +
-                "-fx-background-radius: 20;" +
-                "-fx-border-radius: 20;" +
-                "-fx-border-color: #333;" +
-                "-fx-border-width: 1;" +
-                "-fx-alignment: center;";
-    }
-
-    private String stileLampadaAccesa() {
-        return "-fx-background-color: #ffffaa;" +
+        return "-fx-background-color: #bbbbbb;" +
                 "-fx-text-fill: #222222;" +
                 "-fx-font-family: 'Courier New';" +
                 "-fx-font-weight: bold;" +
                 "-fx-background-radius: 20;" +
                 "-fx-border-radius: 20;" +
-                "-fx-border-color: #dddd00;" +
+                "-fx-border-color: #999999;" +
+                "-fx-border-width: 1;" +
+                "-fx-cursor: hand;";
+    }
+
+    private String stileLampadaSpenta() {
+        return "-fx-background-color: #cccccc;" +
+                "-fx-text-fill: #999999;" +
+                "-fx-font-family: 'Courier New';" +
+                "-fx-font-weight: bold;" +
+                "-fx-background-radius: 20;" +
+                "-fx-border-radius: 20;" +
+                "-fx-border-color: #aaaaaa;" +
+                "-fx-border-width: 1;" +
+                "-fx-alignment: center;";
+    }
+
+    private String stileLampadaAccesa() {
+        return "-fx-background-color: #ffff99;" +
+                "-fx-text-fill: #222222;" +
+                "-fx-font-family: 'Courier New';" +
+                "-fx-font-weight: bold;" +
+                "-fx-background-radius: 20;" +
+                "-fx-border-radius: 20;" +
+                "-fx-border-color: #cccc00;" +
                 "-fx-border-width: 2;" +
-                "-fx-alignment: center;" +
-                "-fx-effect: dropshadow(gaussian, #ffff00, 10, 0.8, 0, 0);";
+                "-fx-alignment: center;";
     }
 
     private String stilePlug() {
-        return "-fx-background-color: #1a1a1a;" +
-                "-fx-text-fill: #555555;" +
+        return "-fx-background-color: #cccccc;" +
+                "-fx-text-fill: #888888;" +
                 "-fx-font-family: 'Courier New';" +
                 "-fx-background-radius: 20;" +
                 "-fx-border-radius: 20;" +
-                "-fx-border-color: #444;" +
+                "-fx-border-color: #aaaaaa;" +
                 "-fx-border-width: 1;" +
                 "-fx-alignment: center;";
     }

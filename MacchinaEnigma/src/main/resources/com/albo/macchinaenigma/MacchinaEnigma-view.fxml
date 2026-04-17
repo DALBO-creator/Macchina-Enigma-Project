@@ -86,7 +86,7 @@
         <HBox fx:id="lampRow3" spacing="5" alignment="CENTER"/>
     </VBox>
 
-    <!-- ===== TASTIERA ===== -->
+    // TASTIERA
     <VBox spacing="5" alignment="CENTER"
           style="-fx-background-color: #e8e8e8;
                  -fx-padding: 8;">
