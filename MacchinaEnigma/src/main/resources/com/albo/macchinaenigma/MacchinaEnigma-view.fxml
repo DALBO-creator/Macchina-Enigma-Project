@@ -16,7 +16,7 @@
 
     <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
 
-    // ROTORI
+    <!--- ROTORI -->
     <HBox spacing="6" alignment="CENTER">
 
         <VBox alignment="CENTER" spacing="0"
@@ -75,7 +75,7 @@
 
     </HBox>
 
-    // LAMPADE
+    <!---LAMPADE-->
     <VBox spacing="5" alignment="CENTER"
           style="-fx-background-color: #dddddd;
                  -fx-border-color: #bbbbbb;
@@ -86,7 +86,7 @@
         <HBox fx:id="lampRow3" spacing="5" alignment="CENTER"/>
     </VBox>
 
-    // TASTIERA
+    <!--- TASTIERA-->
     <VBox spacing="5" alignment="CENTER"
           style="-fx-background-color: #e8e8e8;
                  -fx-padding: 8;">
@@ -95,7 +95,7 @@
         <HBox fx:id="keyRow3" spacing="5" alignment="CENTER"/>
     </VBox>
 
-    // PANNELLO PRESE
+    <!-- PANNELLO PRESE-->
     <VBox spacing="6" alignment="CENTER"
           style="-fx-background-color: #dddddd;
                  -fx-border-color: #bbbbbb;
