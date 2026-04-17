@@ -68,4 +68,16 @@ public class MacchinaEnigma {
 
         return c;
     }
+
+    public Rotore getRotoreSinistro() {
+        return this.rotoreSinistro;
+    }
+
+    public Rotore getRotoreDestro(){
+        return this.rotoreDestro;
+    }
+
+    public Rotore getRotoreMedio() {
+        return this.rotoreMedio;
+    }
 }
