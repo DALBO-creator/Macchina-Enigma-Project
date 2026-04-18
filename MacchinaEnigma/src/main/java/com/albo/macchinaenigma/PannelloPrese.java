@@ -1,7 +1,5 @@
 package com.albo.macchinaenigma;
 
-//configuri "AB", ogni A diventa B e ogni B diventa A.
-
 public class PannelloPrese {
 
     private final char[] scambi = new char[26];
@@ -13,11 +11,7 @@ public class PannelloPrese {
         }
     }
 
-
-     //Configura le coppie di scambio a partire da una stringa, es: "AB CD EF" → scambia A-B, C-D, E-F
-
     public void configura(String coppie) {
-        //Reset prima di configurare
         for (int i = 0; i < 26; i++) {
             scambi[i] = (char) ('A' + i);
         }
@@ -32,8 +26,6 @@ public class PannelloPrese {
             }
         }
     }
-
-    //restituisce la lettera scambiata, o se non ci sono scambi la lettera stessa
 
     public char scambia(char c) {
         return scambi[c - 'A'];
