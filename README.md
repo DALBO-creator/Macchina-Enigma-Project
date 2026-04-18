@@ -1,65 +1,66 @@
-# 🔐 Macchina Enigma — Simulatore JavaFX
+# Macchina Enigma - Simulatore Software
 
-Simulazione della macchina Enigma sviluppata in JavaFX come progetto scolastico.
-Il programma riproduce il funzionamento crittografico della macchina usata
-dalla Germania nella Seconda Guerra Mondiale.
+Simulazione della macchina Enigma sviluppata in JavaFX.
+Il programma riproduce fedelmente il funzionamento crittografico del dispositivo elettromeccanico storico.
 
-## 👥 Autori
+## Autori e Contributi
 
-| Nome | Ruolo |
+| Nominativo | Ruolo e Componenti Sviluppati |
 |---|---|
-| **Albo Davide** | Backend – Componenti Enigma (`Rotore`, `Riflettore`, `PannelloPrese`) |
-| **Righi Riccardo** | Backend – Logica di cifratura e rotazione (`MacchinaEnigma`) |
-| **Derkach Oleksandr** | Frontend – Interfaccia JavaFX (FXML + Controller) |
+| Albo Davide | Backend - Strutture dati hardware: `Rotore`, `Riflettore`, `PannelloPrese` |
+| Righi Riccardo | Backend - Logica di orchestrazione e algoritmo di cifratura: `MacchinaEnigma` |
+| Derkach Oleksandr | Frontend - Integrazione UI/UX (JavaFX, FXML, Controller) |
 
-## ⚙️ Requisiti
+## Requisiti di Sistema
 
-- Java 17+
-- JavaFX 17+
-- Maven 3.8+
+- Java Development Kit (JDK) 17 o superiore
+- JavaFX 17 o superiore
+- Apache Maven 3.8 o superiore
 
-## 🚀 Come avviare
+## Modalita' di Esecuzione
 
 ```bash
-git clone https://github.com/...
-cd macchina-enigma
-mvn javafx:run
+git clone <repository_url>
+cd MacchinaEnigma
+mvn clean javafx:run
 ```
 
-## 🎮 Come usare
+## Istruzioni di Utilizzo
 
-1. Imposta la posizione iniziale dei 3 rotori (A–Z)
-2. Inserisci le coppie del pannello prese — opzionale (es. `AB CD EF`)
-3. Clicca **Applica**
-4. Premi i tasti della tastiera a schermo oppure i tasti fisici
-5. La lettera cifrata appare evidenziata, il testo si accumula nel campo output
+1. L'interfaccia si presenta divisa in due pannelli: la simulazione hardware a sinistra e il log testuale a destra.
+2. In basso, nel Pannello Prese, inserire le coppie di connessione desiderate (es. "AB CD EF").
+3. Premere "Applica" per confermare la configurazione hardware iniziale.
+4. Premere i tasti della tastiera circolare simulata, oppure interagire mediante la tastiera fisica del computer.
+5. Il percorso del segnale accendera' la lampada crittografata corrispondente.
+6. A destra, le TextArea "TESTO IN CHIARO" e "TESTO CRIPTATO" memorizzeranno progressivamente le sessioni in ingresso e in uscita.
 
-Per **decifrare**: usa la stessa configurazione iniziale e inserisci il testo cifrato.
+La cifratura e' simmetrica: per decifrare un messaggio, e' sufficiente resettare la macchina alla configurazione iniziale esatta e immettere il testo cifrato.
 
-## ✅ Esempio
-
-```
-Configurazione: rotori AAA, nessun pannello prese
-
-Input:  HELLO
-Output: MFNCU
-
-Reset alla stessa configurazione:
-Input:  MFNCU
-Output: HELLO  ✅
-```
-
-## 📁 Struttura del progetto
+## Esempio di Verifica della Simmetria
 
 ```
+Configurazione inziale: Rotori posizionati in [A, A, A], nessun cavo nel pannello prese.
+
+Fase 1 (Cifratura):
+Input:  H E L L O
+Output: V U C F E
+
+Fase 2 (Decifratura con Reset a [A, A, A]):
+Input:  V U C F E
+Output: H E L L O
+```
+
+## Struttura del Progetto
+
+```text
 src/main/java/com/albo/macchinaenigma/
-├── MacchinaEnigmaApplication.java   # Avvia l'applicazione
-├── MacchinaEnigmaController.java    # Collega UI e logica
-├── MacchinaEnigma.java              # Logica di cifratura completa
-├── Rotore.java                      # Singolo rotore con mappatura
-├── Riflettore.java                  # Riflettore fisso
-└── PannelloPrese.java               # Plugboard configurabile
+├── MacchinaEnigmaApplication.java
+├── MacchinaEnigmaController.java
+├── MacchinaEnigma.java
+├── Rotore.java
+├── Riflettore.java
+└── PannelloPrese.java
 
 src/main/resources/com/albo/macchinaenigma/
-└── MacchinaEnigma-view.fxml         # Layout interfaccia
+└── MacchinaEnigma-view.fxml
 ```

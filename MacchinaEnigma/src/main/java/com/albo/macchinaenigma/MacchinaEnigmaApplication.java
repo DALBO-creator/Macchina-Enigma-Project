@@ -11,7 +11,8 @@ public class MacchinaEnigmaApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MacchinaEnigmaApplication.class.getResource("MacchinaEnigma-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 520, 700);
+        // Allarga la finestra da 520 a 800 per fare spazio al testo a destra
+        Scene scene = new Scene(fxmlLoader.load(), 800, 700);
         stage.setTitle("Macchina Enigma");
         stage.setScene(scene);
         stage.show();

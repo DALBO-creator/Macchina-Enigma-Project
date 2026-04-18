@@ -4,120 +4,163 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
-<VBox xmlns="http://javafx.com/javafx"
+<HBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.albo.macchinaenigma.MacchinaEnigmaController"
       onKeyPressed="#onKeyPressed"
-      spacing="14"
-      alignment="CENTER"
-      style="-fx-background-color: #e8e8e8;
-             -fx-border-color: #aaaaaa;
-             -fx-border-width: 4;">
+      style="-fx-background-color: #2b2d30;"> <!-- Sfondo scuro per coprire le aree laterali -->
 
-    <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
-
-    <!--- ROTORI -->
-    <HBox spacing="6" alignment="CENTER">
-
-        <VBox alignment="CENTER" spacing="0"
-              style="-fx-background-color: #cccccc;
-                     -fx-border-color: #999999;
-                     -fx-border-width: 1;
-                     -fx-min-width: 48;
-                     -fx-padding: 4;">
-            <Label fx:id="labelRotoreSinistroSu" text="D"
-                   style="-fx-font-size: 11px; -fx-text-fill: #999999;
-                          -fx-font-family: 'Courier New';"/>
-            <Label fx:id="labelRotoreSinistro" text="A"
-                   style="-fx-font-size: 20px; -fx-font-weight: bold;
-                          -fx-text-fill: #222222; -fx-font-family: 'Courier New';
-                          -fx-background-color: #bbbbbb; -fx-padding: 2 10;"/>
-            <Label fx:id="labelRotoreSinistroGiu" text="Z"
-                   style="-fx-font-size: 11px; -fx-text-fill: #999999;
-                          -fx-font-family: 'Courier New';"/>
-        </VBox>
-
-        <VBox alignment="CENTER" spacing="0"
-              style="-fx-background-color: #cccccc;
-                     -fx-border-color: #999999;
-                     -fx-border-width: 1;
-                     -fx-min-width: 48;
-                     -fx-padding: 4;">
-            <Label fx:id="labelRotoreMedioSu" text="D"
-                   style="-fx-font-size: 11px; -fx-text-fill: #999999;
-                          -fx-font-family: 'Courier New';"/>
-            <Label fx:id="labelRotoreMedio" text="A"
-                   style="-fx-font-size: 20px; -fx-font-weight: bold;
-                          -fx-text-fill: #222222; -fx-font-family: 'Courier New';
-                          -fx-background-color: #bbbbbb; -fx-padding: 2 10;"/>
-            <Label fx:id="labelRotoreMedioGiu" text="Z"
-                   style="-fx-font-size: 11px; -fx-text-fill: #999999;
-                          -fx-font-family: 'Courier New';"/>
-        </VBox>
-
-        <VBox alignment="CENTER" spacing="0"
-              style="-fx-background-color: #cccccc;
-                     -fx-border-color: #999999;
-                     -fx-border-width: 1;
-                     -fx-min-width: 48;
-                     -fx-padding: 4;">
-            <Label fx:id="labelRotoreDestroSu" text="D"
-                   style="-fx-font-size: 11px; -fx-text-fill: #999999;
-                          -fx-font-family: 'Courier New';"/>
-            <Label fx:id="labelRotoreDestro" text="A"
-                   style="-fx-font-size: 20px; -fx-font-weight: bold;
-                          -fx-text-fill: #222222; -fx-font-family: 'Courier New';
-                          -fx-background-color: #bbbbbb; -fx-padding: 2 10;"/>
-            <Label fx:id="labelRotoreDestroGiu" text="Z"
-                   style="-fx-font-size: 11px; -fx-text-fill: #999999;
-                          -fx-font-family: 'Courier New';"/>
-        </VBox>
-
-    </HBox>
-
-    <!---LAMPADE-->
-    <VBox spacing="5" alignment="CENTER"
-          style="-fx-background-color: #dddddd;
-                 -fx-border-color: #bbbbbb;
-                 -fx-border-width: 1;
-                 -fx-padding: 8;">
-        <HBox fx:id="lampRow1" spacing="5" alignment="CENTER"/>
-        <HBox fx:id="lampRow2" spacing="5" alignment="CENTER"/>
-        <HBox fx:id="lampRow3" spacing="5" alignment="CENTER"/>
-    </VBox>
-
-    <!--- TASTIERA-->
-    <VBox spacing="5" alignment="CENTER"
+    <!-- CONTENITORE PRINCIPALE (MACCHINA) -->
+    <VBox spacing="14"
+          alignment="CENTER"
           style="-fx-background-color: #e8e8e8;
-                 -fx-padding: 8;">
-        <HBox fx:id="keyRow1" spacing="5" alignment="CENTER"/>
-        <HBox fx:id="keyRow2" spacing="5" alignment="CENTER"/>
-        <HBox fx:id="keyRow3" spacing="5" alignment="CENTER"/>
+                 -fx-border-color: #aaaaaa;
+                 -fx-border-width: 4;
+                 -fx-min-width: 520;">
+
+        <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+
+        <!--- ROTORI -->
+        <HBox spacing="6" alignment="CENTER">
+
+            <VBox alignment="CENTER" spacing="0"
+                  style="-fx-background-color: #cccccc;
+                         -fx-border-color: #999999;
+                         -fx-border-width: 1;
+                         -fx-min-width: 48;
+                         -fx-padding: 4;">
+                <Label fx:id="labelRotoreSinistroSu" text="D"
+                       style="-fx-font-size: 11px; -fx-text-fill: #999999;
+                              -fx-font-family: 'Courier New';"/>
+                <Label fx:id="labelRotoreSinistro" text="A"
+                       style="-fx-font-size: 20px; -fx-font-weight: bold;
+                              -fx-text-fill: #222222; -fx-font-family: 'Courier New';
+                              -fx-background-color: #bbbbbb; -fx-padding: 2 10;"/>
+                <Label fx:id="labelRotoreSinistroGiu" text="Z"
+                       style="-fx-font-size: 11px; -fx-text-fill: #999999;
+                              -fx-font-family: 'Courier New';"/>
+            </VBox>
+
+            <VBox alignment="CENTER" spacing="0"
+                  style="-fx-background-color: #cccccc;
+                         -fx-border-color: #999999;
+                         -fx-border-width: 1;
+                         -fx-min-width: 48;
+                         -fx-padding: 4;">
+                <Label fx:id="labelRotoreMedioSu" text="D"
+                       style="-fx-font-size: 11px; -fx-text-fill: #999999;
+                              -fx-font-family: 'Courier New';"/>
+                <Label fx:id="labelRotoreMedio" text="A"
+                       style="-fx-font-size: 20px; -fx-font-weight: bold;
+                              -fx-text-fill: #222222; -fx-font-family: 'Courier New';
+                              -fx-background-color: #bbbbbb; -fx-padding: 2 10;"/>
+                <Label fx:id="labelRotoreMedioGiu" text="Z"
+                       style="-fx-font-size: 11px; -fx-text-fill: #999999;
+                              -fx-font-family: 'Courier New';"/>
+            </VBox>
+
+            <VBox alignment="CENTER" spacing="0"
+                  style="-fx-background-color: #cccccc;
+                         -fx-border-color: #999999;
+                         -fx-border-width: 1;
+                         -fx-min-width: 48;
+                         -fx-padding: 4;">
+                <Label fx:id="labelRotoreDestroSu" text="D"
+                       style="-fx-font-size: 11px; -fx-text-fill: #999999;
+                              -fx-font-family: 'Courier New';"/>
+                <Label fx:id="labelRotoreDestro" text="A"
+                       style="-fx-font-size: 20px; -fx-font-weight: bold;
+                              -fx-text-fill: #222222; -fx-font-family: 'Courier New';
+                              -fx-background-color: #bbbbbb; -fx-padding: 2 10;"/>
+                <Label fx:id="labelRotoreDestroGiu" text="Z"
+                       style="-fx-font-size: 11px; -fx-text-fill: #999999;
+                              -fx-font-family: 'Courier New';"/>
+            </VBox>
+
+        </HBox>
+
+        <!---LAMPADE-->
+        <VBox spacing="5" alignment="CENTER"
+              style="-fx-background-color: #dddddd;
+                     -fx-border-color: #bbbbbb;
+                     -fx-border-width: 1;
+                     -fx-padding: 8;">
+            <HBox fx:id="lampRow1" spacing="5" alignment="CENTER"/>
+            <HBox fx:id="lampRow2" spacing="5" alignment="CENTER"/>
+            <HBox fx:id="lampRow3" spacing="5" alignment="CENTER"/>
+        </VBox>
+
+        <!--- TASTIERA-->
+        <VBox spacing="5" alignment="CENTER"
+              style="-fx-background-color: #e8e8e8;
+                     -fx-padding: 8;">
+            <HBox fx:id="keyRow1" spacing="5" alignment="CENTER"/>
+            <HBox fx:id="keyRow2" spacing="5" alignment="CENTER"/>
+            <HBox fx:id="keyRow3" spacing="5" alignment="CENTER"/>
+        </VBox>
+
+        <!-- PANNELLO PRESE-->
+        <VBox spacing="6" alignment="CENTER"
+              style="-fx-background-color: #dddddd;
+                     -fx-border-color: #bbbbbb;
+                     -fx-border-width: 1;
+                     -fx-padding: 8;">
+            <Label text="Pannello Prese"
+                   style="-fx-text-fill: #777777; -fx-font-family: 'Courier New';
+                          -fx-font-size: 11px;"/>
+            <HBox fx:id="plugRow1" spacing="5" alignment="CENTER"/>
+            <HBox fx:id="plugRow2" spacing="5" alignment="CENTER"/>
+            <HBox fx:id="plugRow3" spacing="5" alignment="CENTER"/>
+            <HBox spacing="8" alignment="CENTER">
+                <TextField fx:id="fieldPannelloPrese"
+                           promptText="es: AB CD EF"
+                           prefWidth="180"
+                           style="-fx-font-family: 'Courier New'; -fx-font-size: 12px;
+                                  -fx-background-color: white; -fx-border-color: #aaaaaa;"/>
+                <Button text="Applica" onAction="#applicaConfigurazione"
+                        style="-fx-font-family: 'Courier New'; -fx-background-color: #bbbbbb;"/>
+                <Button text="Reset" onAction="#resetConfigurazione"
+                        style="-fx-font-family: 'Courier New'; -fx-background-color: #bbbbbb;"/>
+            </HBox>
+        </VBox>
+
     </VBox>
 
-    <!-- PANNELLO PRESE-->
-    <VBox spacing="6" alignment="CENTER"
-          style="-fx-background-color: #dddddd;
-                 -fx-border-color: #bbbbbb;
-                 -fx-border-width: 1;
-                 -fx-padding: 8;">
-        <Label text="Pannello Prese"
-               style="-fx-text-fill: #777777; -fx-font-family: 'Courier New';
-                      -fx-font-size: 11px;"/>
-        <HBox fx:id="plugRow1" spacing="5" alignment="CENTER"/>
-        <HBox fx:id="plugRow2" spacing="5" alignment="CENTER"/>
-        <HBox fx:id="plugRow3" spacing="5" alignment="CENTER"/>
-        <HBox spacing="8" alignment="CENTER">
-            <TextField fx:id="fieldPannelloPrese"
-                       promptText="es: AB CD EF"
-                       prefWidth="180"
-                       style="-fx-font-family: 'Courier New'; -fx-font-size: 12px;
-                              -fx-background-color: white; -fx-border-color: #aaaaaa;"/>
-            <Button text="Applica" onAction="#applicaConfigurazione"
-                    style="-fx-font-family: 'Courier New'; -fx-background-color: #bbbbbb;"/>
-            <Button text="Reset" onAction="#resetConfigurazione"
-                    style="-fx-font-family: 'Courier New'; -fx-background-color: #bbbbbb;"/>
+    <!-- CONTENITORE DESTRO (TESTI) -->
+    <VBox spacing="20"
+          HBox.hgrow="ALWAYS"
+          style="-fx-background-color: #3e4145; -fx-padding: 20;">
+          
+        <VBox spacing="5" VBox.vgrow="ALWAYS">
+            <Label text="TESTO IN CHIARO:" textFill="#a9b7c6" style="-fx-font-weight: bold;"/>
+            <TextArea fx:id="testoInChiaroArea" 
+                      editable="false"
+                      wrapText="true"
+                      VBox.vgrow="ALWAYS"
+                      style="-fx-control-inner-background: #2b2d30; 
+                             -fx-text-fill: #a9b7c6; 
+                             -fx-font-family: 'Courier New'; 
+                             -fx-font-size: 14px;
+                             -fx-border-color: #555555;"/>
+        </VBox>
+
+        <VBox spacing="5" VBox.vgrow="ALWAYS">
+            <Label text="TESTO CRIPTATO:" textFill="#a9b7c6" style="-fx-font-weight: bold;"/>
+            <TextArea fx:id="testoCriptatoArea" 
+                      editable="false"
+                      wrapText="true"
+                      VBox.vgrow="ALWAYS"
+                      style="-fx-control-inner-background: #2b2d30; 
+                             -fx-text-fill: #cc7832; 
+                             -fx-font-family: 'Courier New'; 
+                             -fx-font-size: 14px;
+                             -fx-border-color: #555555;"/>
+        </VBox>
+        
+        <HBox alignment="CENTER_RIGHT" spacing="10">
+            <Button text="Pulisci Testi" onAction="#pulisciTesti"
+                    style="-fx-background-color: #4c5052; -fx-text-fill: white; -fx-font-weight: bold;"/>
         </HBox>
     </VBox>
-
-</VBox>
+    
+</HBox>
