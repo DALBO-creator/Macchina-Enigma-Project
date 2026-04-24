@@ -128,6 +128,45 @@ public class MacchinaEnigmaController {
                 macchina.getRotoreDestro());
     }
 
+
+    // Frecce rotori
+
+    @FXML
+    public void rotoreSinistroSu() {
+        macchina.getRotoreSinistro().ruota();
+        aggiornaRotori();
+    }
+
+    @FXML
+    public void rotoreSinistroGiu() {
+        macchina.getRotoreSinistro().ruotaIndietro();
+        aggiornaRotori();
+    }
+
+    @FXML
+    public void rotoreMedioSu() {
+        macchina.getRotoreMedio().ruota();
+        aggiornaRotori();
+    }
+
+    @FXML
+    public void rotoreMedioGiu() {
+        macchina.getRotoreMedio().ruotaIndietro();
+        aggiornaRotori();
+    }
+
+    @FXML
+    public void rotoreDestroSu() {
+        macchina.getRotoreDestro().ruota();
+        aggiornaRotori();
+    }
+
+    @FXML
+    public void rotoreDestroGiu() {
+        macchina.getRotoreDestro().ruotaIndietro();
+        aggiornaRotori();
+    }
+
     private void aggiornaDisplay(Label centro, Label su, Label giu, Rotore r) {
         char corrente = (char) ('A' + r.getPosizione());
         char sopra    = (char) ('A' + (r.getPosizione() + 1) % 26);

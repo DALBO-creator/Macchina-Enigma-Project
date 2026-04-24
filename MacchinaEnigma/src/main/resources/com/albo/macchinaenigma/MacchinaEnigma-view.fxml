@@ -20,61 +20,79 @@
 
         <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
 
-        <!--- ROTORI -->
+        <!-- ROTORI -->
         <HBox spacing="6" alignment="CENTER">
 
-            <VBox alignment="CENTER" spacing="0"
+            <VBox alignment="CENTER" spacing="2"
                   style="-fx-background-color: #cccccc;
-                         -fx-border-color: #999999;
-                         -fx-border-width: 1;
-                         -fx-min-width: 48;
-                         -fx-padding: 4;">
+                 -fx-border-color: #999999;
+                 -fx-border-width: 1;
+                 -fx-min-width: 48;
+                 -fx-padding: 4;">
+                <Button text="▲" onAction="#rotoreSinistroSu"
+                        style="-fx-font-size: 10px; -fx-background-color: #bbbbbb;
+                       -fx-cursor: hand;" maxWidth="Infinity"/>
                 <Label fx:id="labelRotoreSinistroSu" text="D"
                        style="-fx-font-size: 11px; -fx-text-fill: #999999;
-                              -fx-font-family: 'Courier New';"/>
+                      -fx-font-family: 'Courier New';"/>
                 <Label fx:id="labelRotoreSinistro" text="A"
                        style="-fx-font-size: 20px; -fx-font-weight: bold;
-                              -fx-text-fill: #222222; -fx-font-family: 'Courier New';
-                              -fx-background-color: #bbbbbb; -fx-padding: 2 10;"/>
+                      -fx-text-fill: #222222; -fx-font-family: 'Courier New';
+                      -fx-background-color: #bbbbbb; -fx-padding: 2 10;"/>
                 <Label fx:id="labelRotoreSinistroGiu" text="Z"
                        style="-fx-font-size: 11px; -fx-text-fill: #999999;
-                              -fx-font-family: 'Courier New';"/>
+                      -fx-font-family: 'Courier New';"/>
+                <Button text="▼" onAction="#rotoreSinistroGiu"
+                        style="-fx-font-size: 10px; -fx-background-color: #bbbbbb;
+                       -fx-cursor: hand;" maxWidth="Infinity"/>
             </VBox>
 
-            <VBox alignment="CENTER" spacing="0"
+            <VBox alignment="CENTER" spacing="2"
                   style="-fx-background-color: #cccccc;
-                         -fx-border-color: #999999;
-                         -fx-border-width: 1;
-                         -fx-min-width: 48;
-                         -fx-padding: 4;">
+                 -fx-border-color: #999999;
+                 -fx-border-width: 1;
+                 -fx-min-width: 48;
+                 -fx-padding: 4;">
+                <Button text="▲" onAction="#rotoreMedioSu"
+                        style="-fx-font-size: 10px; -fx-background-color: #bbbbbb;
+                       -fx-cursor: hand;" maxWidth="Infinity"/>
                 <Label fx:id="labelRotoreMedioSu" text="D"
                        style="-fx-font-size: 11px; -fx-text-fill: #999999;
-                              -fx-font-family: 'Courier New';"/>
+                      -fx-font-family: 'Courier New';"/>
                 <Label fx:id="labelRotoreMedio" text="A"
                        style="-fx-font-size: 20px; -fx-font-weight: bold;
-                              -fx-text-fill: #222222; -fx-font-family: 'Courier New';
-                              -fx-background-color: #bbbbbb; -fx-padding: 2 10;"/>
+                      -fx-text-fill: #222222; -fx-font-family: 'Courier New';
+                      -fx-background-color: #bbbbbb; -fx-padding: 2 10;"/>
                 <Label fx:id="labelRotoreMedioGiu" text="Z"
                        style="-fx-font-size: 11px; -fx-text-fill: #999999;
-                              -fx-font-family: 'Courier New';"/>
+                      -fx-font-family: 'Courier New';"/>
+                <Button text="▼" onAction="#rotoreMedioGiu"
+                        style="-fx-font-size: 10px; -fx-background-color: #bbbbbb;
+                       -fx-cursor: hand;" maxWidth="Infinity"/>
             </VBox>
 
-            <VBox alignment="CENTER" spacing="0"
+            <VBox alignment="CENTER" spacing="2"
                   style="-fx-background-color: #cccccc;
-                         -fx-border-color: #999999;
-                         -fx-border-width: 1;
-                         -fx-min-width: 48;
-                         -fx-padding: 4;">
+                 -fx-border-color: #999999;
+                 -fx-border-width: 1;
+                 -fx-min-width: 48;
+                 -fx-padding: 4;">
+                <Button text="▲" onAction="#rotoreDestroSu"
+                        style="-fx-font-size: 10px; -fx-background-color: #bbbbbb;
+                       -fx-cursor: hand;" maxWidth="Infinity"/>
                 <Label fx:id="labelRotoreDestroSu" text="D"
                        style="-fx-font-size: 11px; -fx-text-fill: #999999;
-                              -fx-font-family: 'Courier New';"/>
+                      -fx-font-family: 'Courier New';"/>
                 <Label fx:id="labelRotoreDestro" text="A"
                        style="-fx-font-size: 20px; -fx-font-weight: bold;
-                              -fx-text-fill: #222222; -fx-font-family: 'Courier New';
-                              -fx-background-color: #bbbbbb; -fx-padding: 2 10;"/>
+                      -fx-text-fill: #222222; -fx-font-family: 'Courier New';
+                      -fx-background-color: #bbbbbb; -fx-padding: 2 10;"/>
                 <Label fx:id="labelRotoreDestroGiu" text="Z"
                        style="-fx-font-size: 11px; -fx-text-fill: #999999;
-                              -fx-font-family: 'Courier New';"/>
+                      -fx-font-family: 'Courier New';"/>
+                <Button text="▼" onAction="#rotoreDestroGiu"
+                        style="-fx-font-size: 10px; -fx-background-color: #bbbbbb;
+                       -fx-cursor: hand;" maxWidth="Infinity"/>
             </VBox>
 
         </HBox>

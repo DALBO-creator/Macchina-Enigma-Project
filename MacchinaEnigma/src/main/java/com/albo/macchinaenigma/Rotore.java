@@ -46,4 +46,8 @@ public class Rotore {
         return c;
     }
 
+    public void ruotaIndietro() {
+        posizione = (posizione - 1 + 26) % 26; //ruota di una tacca al contrario
+    }
+
 }
