@@ -240,6 +240,9 @@ public class MacchinaEnigmaController {
     public void resetConfigurazione() {
         macchina.reset();
         fieldPannelloPrese.clear();
+        for (Label l : plugLabels) {
+            if (l != null) l.setStyle(stilePlug());
+        }
         spegniTutteLeLampade();
         aggiornaRotori();
     }
