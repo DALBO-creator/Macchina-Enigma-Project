@@ -23,6 +23,7 @@ public class MacchinaEnigma {
         rotoreSinistro.setPosizione('A');
         rotoreMedio.setPosizione('A');
         rotoreDestro.setPosizione('A');
+        pannelloPrese.configura("");
     }
 
     private void ruotaRotori() {
