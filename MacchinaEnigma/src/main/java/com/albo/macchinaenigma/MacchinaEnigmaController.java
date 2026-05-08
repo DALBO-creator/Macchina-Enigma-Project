@@ -42,10 +42,27 @@ public class MacchinaEnigmaController {
     private static final String[] RIGA1 = {"Q","W","E","R","T","Z","U","I","O"};
     private static final String[] RIGA2 = {"A","S","D","F","G","H","J","K"};
     private static final String[] RIGA3 = {"P","Y","X","C","V","B","N","M","L"};
+    private static final String[][] COLORI_PLUG = {
+            {"#aaddaa", "#114411"},  //verde
+            {"#aaddff", "#114455"},  //azzurro
+            {"#ffddaa", "#553311"},  //arancione
+            {"#ffaadd", "#551133"},  //rosa
+            {"#ddaaff", "#331155"},  //viola
+            {"#aaffdd", "#115533"},  //menta
+            {"#ffaaaa", "#551111"},  //rosso pastello
+            {"#ffffaa", "#555511"},  //giallo
+            {"#aaffff", "#115555"},  //ciano
+            {"#ffddff", "#553355"},  //lilla
+            {"#ddffaa", "#335511"},  //verde lime
+            {"#ffd5aa", "#553311"},  //arancino..
+            {"#aabbff", "#111155"},  //blu pastello
+    };
 
     private Button[] buttons = new Button[26];
 
     private Label[] lampade = new Label[26];
+
+    private Label[] plugLabels = new Label[26];
 
     private MacchinaEnigma macchina = new MacchinaEnigma();
 
@@ -99,6 +116,7 @@ public class MacchinaEnigmaController {
             Label plug = new Label(s);
             plug.setPrefSize(40, 40);
             plug.setStyle(stilePlug());
+            plugLabels[s.charAt(0) - 'A'] = plug;
             riga.getChildren().add(plug);
         }
     }
@@ -189,7 +207,33 @@ public class MacchinaEnigmaController {
 
     @FXML
     public void applicaConfigurazione() {
-        macchina.configuraPannello(fieldPannelloPrese.getText());
+        String testo = fieldPannelloPrese.getText();
+        macchina.configuraPannello(testo);
+
+        // resetta i colori dei vari plug
+        for (Label l : plugLabels) {
+            if (l != null) l.setStyle(stilePlug());
+        }
+
+        // colora diversamente ogni scambio
+        String[] parti = testo.toUpperCase().split(" ");
+        for (int i = 0; i < parti.length; i++) {
+            String coppia = parti[i];
+            if (coppia.length() == 2) {
+                // Prende il colore corrispondente dall'array di colori
+                String[] colore = COLORI_PLUG[i % COLORI_PLUG.length];
+                char a = coppia.charAt(0);
+                char b = coppia.charAt(1);
+                if (plugLabels[a - 'A'] != null)
+                    plugLabels[a - 'A'].setStyle(stilePlug() +
+                            "-fx-background-color: " + colore[0] + ";" +
+                            "-fx-text-fill: " + colore[1] + ";");
+                if (plugLabels[b - 'A'] != null)
+                    plugLabels[b - 'A'].setStyle(stilePlug() +
+                            "-fx-background-color: " + colore[0] + ";" +
+                            "-fx-text-fill: " + colore[1] + ";");
+            }
+        }
     }
 
     @FXML
