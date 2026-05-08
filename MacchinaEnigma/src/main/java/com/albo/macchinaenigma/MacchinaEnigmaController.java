@@ -7,6 +7,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
+import javafx.animation.PauseTransition;
+import javafx.util.Duration;
 
 public class MacchinaEnigmaController {
 
@@ -114,6 +116,9 @@ public class MacchinaEnigmaController {
         Label lampTarget = lampade[letteraCriptata - 'A'];
         if (lampTarget != null) {
             lampTarget.setStyle(stileLampadaAccesa());
+            PauseTransition pausa = new PauseTransition(Duration.millis(500));
+            pausa.setOnFinished(e -> lampTarget.setStyle(stileLampadaSpenta()));
+            pausa.play();
         }
 
         aggiornaRotori();
